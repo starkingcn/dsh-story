@@ -101,13 +101,13 @@ plugin_manager install_bundle <绝对路径>\story-mode
 ## 发布到插件市场
 
 1. `cd story-mode && npm publish`（包名 `dsh-story-mode`，MIT）；
-2. 推 GitHub 并给仓库加 `dsh-plugin` topic（仓库需创建满 1 天）；
+2. 给 GitHub 仓库加 `dsh-plugin` topic；
 3. 到 <https://github.com/awesome-dsh-plugin/awesome-dsh-plugin> 新建
-   `data/plugins/starkingcn__dsh-story.yml`：
+   `data/plugins/starkingcn__dsh-story--story-mode.yml`（插件在子目录，按 monorepo 子包形式填写）：
 
 ```yaml
-url: https://github.com/starkingcn/dsh-story
-name: starkingcn/dsh-story
+url: https://github.com/starkingcn/dsh-story/tree/main/story-mode
+name: starkingcn/dsh-story#story-mode
 category: agi
 description:
   en: 'Story Mode preset for DeepSeek Harness: role-play GM persona, three-way choices, .md character cards and world book, context distillation and prompt wrapping.'
