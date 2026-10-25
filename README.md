@@ -47,22 +47,11 @@
 - GitHub：<https://github.com/starkingcn/dsh-story>
 - npm：`dsh-story-mode`
 
-安装方式任选其一：
-
 ```sh
-# 从 npm（推荐，预构建、免构建授权）
 dsh plugin add dsh-story-mode
 ```
 
-```text
-# 或从本仓库的本地目录安装（开发时）
-plugin_manager install_bundle <本仓库绝对路径>\story-mode
-```
-
-安装后：
-
-1. **重启 DSH**（宿主侧新增命令需要重启；仅改客户端时刷新页面即可）；
-2. 新建会话，在 **Agent 预设** 里选择 **故事模式**。
+安装后重启 DSH，新建会话并在 **Agent 预设** 里选择 **故事模式**。
 
 > 旧会话保留创建时的插件版本，验证改动请用新会话。
 
@@ -87,42 +76,11 @@ settings/end.txt
 
 这些是个人创作内容，默认被 `.gitignore` 排除；想随仓库版本化时，删掉对应忽略规则即可。
 
-## 开发
-
-```text
-plugin_manager remove_bundle dsh-story-mode
-plugin_manager install_bundle <绝对路径>\story-mode
-```
-
-- 宿主侧改动（`*.js` 里的 `apply`、`cordis.patch.yml`）：重装后**重启 DSH**；
-- 客户端改动（`client.js`）：重装后**刷新页面**；
-- 版本号写在 `story-mode/package.json`，改动后建议同步递增。
-
-## 发布到插件市场
-
-1. `cd story-mode && npm publish`（包名 `dsh-story-mode`，MIT）；
-2. 给 GitHub 仓库加 `dsh-plugin` topic；
-3. 到 <https://github.com/awesome-dsh-plugin/awesome-dsh-plugin> 新建
-   `data/plugins/starkingcn__dsh-story--story-mode.yml`（插件在子目录，按 monorepo 子包形式填写）：
-
-```yaml
-url: https://github.com/starkingcn/dsh-story/tree/main/story-mode
-name: starkingcn/dsh-story#story-mode
-category: agi
-description:
-  en: 'Story Mode preset for DeepSeek Harness: role-play GM persona, three-way choices, .md character cards and world book, context distillation and prompt wrapping.'
-  zh: '面向 DeepSeek Harness 的故事模式预设：叙事 GM 人格、三条走向、.md 角色卡与世界书记忆、上下文提纯与前后置提示词。'
-icon: https://raw.githubusercontent.com/starkingcn/dsh-story/main/assets/icon-180.png
-```
-
-合并后站点与索引自动重建，`dshmarket` / 官方 Discover 都会收录。
-
 ## 已知限制
 
-- 故事模式里没有工具调用（`story-guard` 主动屏蔽），模型只输出文本；
+- 故事模式内不提供工具调用，模型只输出叙事文本；
 - 记忆文件每轮同步读取，单次上限 200 个文件 / 12 万字符；
-- 提纯**不自动清理上下文**，需要重置会话请自行新建会话或使用 `/compact`；
-- 内存态（如压缩服务）依赖预设内的 `compaction` 组，不要单独移除。
+- 上下文提纯不会自动清理会话上下文，需要重置请新建会话或使用 `/compact`。
 
 ## 许可
 
