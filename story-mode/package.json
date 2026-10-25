@@ -1,0 +1,64 @@
+{
+  "name": "dsh-story-mode",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "description": "Story Mode (故事模式) agent preset for DeepSeek Harness: role-play GM persona, three-way choices, .md memory cards and world book, context distillation and prompt wrapping.",
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "preset",
+    "story",
+    "roleplay",
+    "interactive-fiction"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starkingcn/dsh-story.git"
+  },
+  "homepage": "https://github.com/starkingcn/dsh-story#readme",
+  "bugs": {
+    "url": "https://github.com/starkingcn/dsh-story/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./choices": "./choices.js",
+    "./memory": "./memory.js",
+    "./prompt-wrap": "./prompt-wrap.js",
+    "./purify": "./purify.js",
+    "./scaffold": "./scaffold.js",
+    "./story-guard": "./story-guard.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "choices.js",
+    "memory.js",
+    "prompt-wrap.js",
+    "purify.js",
+    "scaffold.js",
+    "story-guard.js",
+    "cordis.patch.yml",
+    "README.md",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

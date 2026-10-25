@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Story Mode">
+  <rect width="64" height="64" rx="14" fill="#1f6feb"/>
+  <path d="M32 21.5c-4.2-3.1-9.2-3.9-14-3.9v26.2c4.8 0 9.8.8 14 3.9 4.2-3.1 9.2-3.9 14-3.9V17.6c-4.8 0-9.8.8-14 3.9z" fill="#ffffff" fill-opacity="0.95"/>
+  <path d="M32 21.5v26.2" stroke="#1f6feb" stroke-width="2" stroke-linecap="round"/>
+</svg>
